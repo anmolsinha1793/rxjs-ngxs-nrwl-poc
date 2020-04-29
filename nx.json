@@ -25,6 +25,12 @@
     "nrwl-angular-poc-e2e": {
       "tags": [],
       "implicitDependencies": ["nrwl-angular-poc"]
+    },
+    "store-lib": {
+      "tags": []
+    },
+    "api": {
+      "tags": []
     }
   }
 }

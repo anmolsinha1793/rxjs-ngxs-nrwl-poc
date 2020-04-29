@@ -25,7 +25,10 @@
               "apps/nrwl-angular-poc/src/favicon.ico",
               "apps/nrwl-angular-poc/src/assets"
             ],
-            "styles": ["apps/nrwl-angular-poc/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "apps/nrwl-angular-poc/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -83,7 +86,10 @@
               "apps/nrwl-angular-poc/tsconfig.app.json",
               "apps/nrwl-angular-poc/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/nrwl-angular-poc/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/nrwl-angular-poc/**"
+            ]
           }
         },
         "test": {
@@ -118,9 +124,84 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/nrwl-angular-poc-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/nrwl-angular-poc-e2e/**"]
+            "tsConfig": [
+              "apps/nrwl-angular-poc-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/nrwl-angular-poc-e2e/**"
+            ]
           }
+        }
+      }
+    },
+    "store-lib": {
+      "projectType": "library",
+      "root": "libs/store-lib",
+      "sourceRoot": "libs/store-lib/src",
+      "prefix": "nrwl-poc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/store-lib/tsconfig.lib.json",
+              "libs/store-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/store-lib/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/store-lib/jest.config.js",
+            "tsConfig": "libs/store-lib/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/store-lib/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "api": {
+      "projectType": "library",
+      "root": "libs/api",
+      "sourceRoot": "libs/api/src",
+      "prefix": "nrwl-poc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/api/tsconfig.lib.json",
+              "libs/api/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/api/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/api/jest.config.js",
+            "tsConfig": "libs/api/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/api/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
         }
       }
     }

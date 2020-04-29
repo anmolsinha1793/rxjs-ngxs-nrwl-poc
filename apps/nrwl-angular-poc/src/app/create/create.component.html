@@ -1,0 +1,40 @@
+<!-- <div class="left">
+
+    <input type="text" placeholder="name" #name>
+    <input type="text" placeholder="url" #url>
+  
+    <button (click)="addTutorial(name.value,url.value)">Add a Tutorial</button>
+  </div> -->
+  <div class="card mt-3">
+    <div class="card-body">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label class="col-md-4">Name</label>
+                <input type="text" class="form-control" formControlName="name" #name/>
+                <div *ngIf="myForm.controls['name'].invalid && (myForm.controls['name'].dirty || myForm.controls['name'].touched)"
+                     class="alert alert-danger">
+                    <div *ngIf="myForm.controls['name'].errors.required">
+                        Name is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4">Url</label>
+                <input type="title" class="form-control" formControlName="url" #url/>
+                <div *ngIf="myForm.controls['url'].invalid && (myForm.controls['url'].dirty || myForm.controls['url'].touched)"
+                     class="alert alert-danger">
+                    <div *ngIf="myForm.controls['url'].errors.required">
+                        Url is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit"
+                        class="btn btn-primary mr-1"
+                        [disabled]="myForm.pristine || myForm.invalid">Submit
+                </button>
+                <button class="btn btn-primary" (click)="clearForm()" [disabled]="myForm.pristine || myForm.invalid">Clear</button>
+            </div>
+        </form>
+    </div>
+</div>

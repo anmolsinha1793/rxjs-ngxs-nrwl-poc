@@ -15,7 +15,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nrwl-poc/store-lib": ["libs/store-lib/src/index.ts"],
+      "@nrwl-poc/api": ["libs/api/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
